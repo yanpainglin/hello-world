@@ -1,18 +1,95 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>my-first-website</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+	<style type="text/css">
+
+		.container button{
+			width: 50px;
+			height: 50px;
+			border:1px solid black;
+			border-radius: 100%;
+			background: yellow;
+			cursor: pointer;
+		}
+		.container{
+			width: 100%;
+			margin: 100px auto;
+			position: relative;
+			height: 540px;
+		}
+
+		.image2{
+			width: 100%;
+			height: auto;
+			display: none;
+			margin-left: 110px;
+		}
+
+		 .image3{
+			display: none;
+			margin-left: 10px;
+		}
+
+
+		.container button{
+			position: absolute;
+			top: 50%;
+		}
+
+		.Prev{
+			left: 10px;
+		}
+
+		.Next{
+			right: 10px;
+		}
+	</style>
 </head>
-
 <body>
+	<div class="container">
+		<button onClick="Prev()" class="Prev">&lt;</button>
+		<button onClick="Next()" class="Next">&gt;</button>
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" id="octocat" alt="octocat-gif" />
+		<div class="image1" id="image1">
+			<img src="image/2.jpg">
+		</div>
 
-<!-- Change this code here by copy and pasting your template on line 15 -->
-<p>Welcome to your first GitHub Pages website!</p>
+		<div class="image2" id="image2">
+			<img src="image/3.jpg">
+		</div>
 
+		<div class="image3" id="image3">
+			<img src="image/4.jpg">
+		</div>
+	</div>
+
+
+
+	<script >
+		function get(obj){
+			return document.getElementById(obj);
+		}
+
+		var image=1
+
+		setInterval(Next, 2000);
+		function Next(){
+			get('image'+image).style.display="none";
+			image++; if (image>3) image=1;
+			get('image'+image).style.display="block";
+			get('image'+image).style.animation="1s left"
+		}
+
+		function Prev(){
+			get('image'+image).style.display="none";
+			image--; if (image<1) image=3;
+			get('image'+image).style.display="block";
+		}
+
+	</script>
 </body>
 </html>
